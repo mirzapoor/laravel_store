@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('index');
 });
 Route::get('/about', function () {
     return view('about');
@@ -21,3 +21,7 @@ Route::get('/about', function () {
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
